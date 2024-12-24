@@ -48,7 +48,7 @@ async function handleSearch(event) {
     searchButton.appendChild(spinner);
 
     try {
-        const response = await fetch('http://localhost:3000/api/get-events', {
+        const response = await fetch('/api/get-events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ function renderResults(data) {
 // Function to fetch an image URL based on the article name
 async function fetchImageUrl(articleName) {
     try {
-        const response = await fetch(`http://localhost:3000/api/get-image?articleName=${encodeURIComponent(articleName)}`);
+        const response = await fetch(`/api/get-image?articleName=${encodeURIComponent(articleName)}`);
         const data = await response.json();
         return data.imageUrl || null; // Return null if no image found
     } catch (error) {
